@@ -93,6 +93,97 @@ mlops_assignment2_final/
 4. Run all cells
 5. View results in MLflow Experiments
 
+## How to Run
+
+### In Databricks (Recommended)
+
+1. Sign up at https://community.cloud.databricks.com/
+2. Create new notebook
+3. Copy cells from `databricks/Assignment2_FeatureStore_Pipeline.ipynb`
+4. Run all cells
+5. View results in MLflow Experiments
+
+### Docker (Local Containerized Environment)
+
+This project includes Docker containerization to demonstrate DevOps skills and ensure reproducibility.
+
+#### Prerequisites
+- Docker Desktop installed and running
+- Download from: https://www.docker.com/products/docker-desktop/
+
+#### Run Data Generation
+```bash
+# Navigate to docker folder
+cd docker
+
+# Build and run data generator
+docker-compose up data-generator --build
+```
+
+This will:
+- Create a containerized Python environment
+- Install all dependencies
+- Generate athletes.csv dataset
+- Output: `local/athletes.csv`
+
+#### Run Jupyter Notebook (Optional)
+```bash
+# Start Jupyter in Docker
+docker-compose up jupyter --build
+
+# Open browser: http://localhost:8888
+# Token will be displayed in terminal
+```
+
+#### Why Docker?
+
+- **Reproducibility**: Exact same environment every time
+- **Portability**: Run on any system with Docker
+- **Isolation**: No dependency conflicts with host system
+- **DevOps Best Practice**: Industry-standard containerization
+
+**Note:** The main ML experiments run in Databricks (cloud). Docker here demonstrates containerization skills for local development and data generation components.
+
+#### Docker Commands Reference
+```bash
+# Build images
+docker-compose build
+
+# Run data generator
+docker-compose up data-generator
+
+# Run Jupyter
+docker-compose up jupyter
+
+# Stop all services
+docker-compose down
+
+# Remove containers and images
+docker-compose down --rmi all
+```
+
+### Locally (Data Generation Only)
+```bash
+cd local
+python create_data.py
+```
+```
+
+---
+
+## So the final structure looks like:
+```
+## How to Run
+
+### In Databricks (Recommended)
+[existing content]
+
+### Docker (Local Containerized Environment)  ← ADD THIS WHOLE SECTION
+[all the Docker content above]
+
+### Locally (Data Generation Only)
+[existing content]
+
 ### Locally (Data Generation Only)
 ```bash
 cd local
