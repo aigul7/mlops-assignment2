@@ -1,0 +1,25 @@
+# Git
+.git/
+.gitignore
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+venv/
+env/
+
+# Data
+*.csv
+*.parquet
+*.db
+
+# Databricks
+databricks/
+
+# Old versions
+old_feast_version/
+
+# OS
+.DS_Store
+Thumbs.db

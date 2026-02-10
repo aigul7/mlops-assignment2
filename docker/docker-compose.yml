@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  # Data generation service
+  data-generator:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    container_name: mlops-data-generator
+    volumes:
+      - ../local:/app/local
+    command: python local/create_data.py
+    
+  # Jupyter notebook service (optional - for local exploration)
+  jupyter:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    container_name: mlops-jupyter
+    ports:
+      - "8888:8888"
+    volumes:
+      - ../local:/app/local
+      - ../docs:/app/docs
+    command: jupyter notebook --ip=0.0.0.0 --port=8888 --no-browser --allow-root
+    environment:
+      - JUPYTER_ENABLE_LAB=yes
